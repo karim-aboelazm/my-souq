@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Product Detail{% endblock title %}
+{% block content %}
+<div class="container  mt-30 ">
+    <div class="row">
+        <div class="col-md-5">
+            <a href="{{product.image.url}}" target="_blank">
+                <img src="{{product.image.url}}" class="mt-5 mb-5" alt="product_image" style="width: 100%;">
+            </a>
+        <div class="row">
+            {% for product_image in product.product_images_set.all %}
+            <div class="col p-3">
+                <a href="{{product_image.image.url}}" target="_blank">
+                    <img src="{{product_image.image.url}}" class="mt-5 mb-5" 
+                alt="product_image" style="height: 100px;object-fit: contain;width:100%">
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        </div>
+        <div class="col-7">
+            <h1 class="mt-5">{{product.title}}</h1>
+            <h3>( Viewed {{product.view_count}} times )</h3>
+            <hr>
+            <span style="text-align:justify">{{product.description}}</span>
+            <hr>
+            <h5>Price : $ {{product.price}}</h5>
+            <hr>
+            <p class="text-info">Warranty : {{product.warranty}}</p>
+            <p class="text-info">Return Policy : {{product.return_policy}}</p>
+            <a href="{% url 'ecom:add_to_cart' product.id %}" class="btn btn-info mb-5" style="background:rgb(14, 14, 24); color:white">Add To Cart</a>
+            
+        </div>
+    </div>
+   
+</div>
+
+{% endblock content %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load humanize %}
+{% block title %}Customer Order Detail{% endblock title %}
+{% block content %}
+   <div class="container">
+       <div class="row">
+           <div class="col-md-8 mx-auto">
+                <h2 class="pt-5">Order Detail</h2><hr>
+                <p><span class="font-weight-bold">Order ID : </span><span> #ORDER_{{order_object.id}}</span></p>
+                <p><span class="font-weight-bold">Order Status : </span><span>{{order_object.order_status}}</span></p>
+                <p><span class="font-weight-bold">Order On : </span><span>{{order_object.created_at}} ( {{order_object.created_at|timesince}} ago )</span></p>
+                <p><span class="font-weight-bold">Customer Info : </span><span>By : {{order_object.ordered_by}} , {{order_object.phone_num}}</span></p>
+                <p><span class="font-weight-bold">Shipping Address : </span><span>By : {{order_object.shopping_address}}, ({{order_object.email}}) </span></p>
+                <hr>
+                <h2>Order Items</h2>
+                <table class="table text.center" >
+                    <thead>
+                      <tr>
+                        <th>SN</th>
+                        <th>Items</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Subtotal</th>
+                      </tr>
+                    </thead>
+                     <tbody>
+                      {% for order in order_object.cart.cartproduct_set.all  %}
+                        <tr>
+                          <td>{{forloop.counter}}</td> 
+                          <td><a target="_blank" href="{% url 'ecom:product_detail' order.product.slug%}">{{order.product.title}} , ({{order.product.id}})</a></td>
+                          <td>$ {{order.rate}}</td>
+                          <td>{{order.quantity}}</td>
+                          <td>$ {{order.subtotal}}</td>
+                        </tr>
+                      {% endfor %}
+                        <tr>
+                            <th colspan="4" class="text-right">Total : </th>
+                            <th>$ {{order_object.total|intcomma}}</th>
+                        </tr>
+                    </tbody> 
+                  </table>
+          </div>
+       </div>
+   </div>
+{% endblock content %}

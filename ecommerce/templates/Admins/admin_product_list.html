@@ -1,0 +1,35 @@
+{% extends "Admins/adminbase.html" %}
+{% block title %}
+  All Products
+{% endblock title %}
+{% block content %}
+    <div class="containe">
+        <div class="col-md-12">
+            <h3 class="text-center mt-3 mb-3">All Products List</h3>
+            <a class="btn btn-info mb-4" href="{% url 'ecom:admin_add_product' %}"><i class="fas fa-plus"></i> Add New Product</a>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>SN</th>
+                        <th>Product Title</th>
+                        <th>Image</th>
+                        <th>Price</th>
+                        <th>Views</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in all_products %}
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{product.title}}</td>
+                            <td><img src="{{product.image.url}}" style="height: 60px;" alt="" srcset=""></td>
+                            <td>$ {{product.price}}</td>
+                            <td>{{product.view_count}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock content %}

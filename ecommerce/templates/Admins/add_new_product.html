@@ -1,0 +1,17 @@
+{% extends "Admins/adminbase.html" %}
+{% load bootstrap5 %}
+{% block title %}
+  Add New Product
+{% endblock title %}
+{% block content %}
+  <div class="container">
+      <div class="col-md-10 mx-auto">
+          <h3 class="text-center mt-5">Add New Product</h3><hr>
+          <form action="{% url 'ecom:admin_add_product' %}" method="post" enctype="multipart/form-data">
+              {% csrf_token %}
+              {% bootstrap_form form %}
+              <button class="btn btn-dark btn-lg btn-block mb-5" type="submit">Add</button>
+          </form>
+      </div>
+  </div>
+{% endblock content %}

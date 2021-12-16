@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    {% include "head.html" %}
+    <title>
+      {% block title %}{% endblock title %}
+    </title>
+    {% block scripts %}
+      
+    {% endblock scripts %}
+    <style>
+      a
+      {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    {% include "nav_system.html" %}
+    {% block content %} {% endblock content %}
+    {% include "footer.html" %}
+    <!-- bootstrap js -->
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <!-- custom js -->
+    <script src="{% static 'js/custom.js' %}"></script>
+  </body>
+</html>

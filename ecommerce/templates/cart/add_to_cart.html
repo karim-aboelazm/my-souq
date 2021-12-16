@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %} Add To Cart{% endblock title %}
+
+{% block content %}
+    <h2 class="text-center pt-5">Congratulations !</h2>
+    <h2 class="text-center">Product is added to the cart successfully !</h2>
+    <center>
+      <a href="{% url 'ecom:my_cart' %}" class="btn btn-primary m-5" 
+      style="background-color:rgb(21, 21, 29);color:white;padding:10px;">Check Your Cart</a>
+    </center>
+{% endblock content %}

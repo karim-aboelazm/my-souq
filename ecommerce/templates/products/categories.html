@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}All Categories{% endblock title %}
+{% block content %}
+
+<section class="product_section layout_padding" id="products">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Our Categories
+        </h2>
+      </div>
+      {% for cat in all_categories %}
+        <h2 style="font-size: 40px; font-weight: bolder;border-bottom:2px solid #000000;padding-bottom: 3px;"><i class="fas fa-chevron-circle-right"></i> {{cat.title}}</h2>
+        <div class="row">
+            {% for product in cat.products_set.all %}
+                <div class="col-sm-6 col-lg-4">
+                <div class="box">
+                    <div class="img-box">
+                        <img src="{{product.image.url}}" alt="">
+                        <a class="add_cart_btn" href="{% url 'ecom:add_to_cart' product.id %}">
+                            <span>Add To Cart</span>
+                        </a>    
+                    </div>
+                    <div class="detail-box">
+                    <h5>
+                        <a href="{% url 'ecom:product_detail' product.slug %}">{{product.title}}</a>
+                    </h5>
+                    <div class="product_info">
+                        <h5>
+                        <span>$</span> {{product.price}}
+                        </h5>
+                        <div class="star_container">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            {% endfor %}
+        </div>
+        <br><br>
+      {%endfor%}
+      
+     
+    </div>
+</section>
+
+
+{% endblock content %}
