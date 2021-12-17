@@ -1,6 +1,6 @@
 from django.urls import path
 from ecommerce.views import *
-# from . import api
+from . import api
 
 app_name = 'ecommerce'
 
@@ -68,4 +68,34 @@ urlpatterns = [
     # filter by search urls 
     path("search/", SearchView.as_view(), name="search"),
     
+    # Api URLS....
+    
+    # Admins Api url
+    path('api/admin-list/',api.AdminListApi.as_view(), name='api_admin_list'),
+    path('api/admin-detail/<int:pk>',api.AdminDetailApi.as_view(), name='api_admin_detail'),
+    path('api/admin-filter/<str:kw>',api.AdminFilterApi.as_view(), name='api_admin_filter'),
+    
+    # customers Api url
+    path('api/customer-list/',api.CustomersListApi.as_view(), name='api_cutomer_list'),
+    path('api/customer-detail/<int:pk>',api.CustomerDetailApi.as_view(), name='api_cutomer_detail'),
+    path('api/customer-filter/<str:kw>',api.CustomerFilterApi.as_view(), name='api_cutomer_filter'),
+    
+    # category Api url
+    path("api/category-list/", api.CategoryListApi.as_view(), name="api_category_list"),
+    path("api/category-detail/<int:pk>", api.CategoryDetailApi.as_view(), name="api_category_detail"),
+    path("api/category-filter/<str:kw>", api.CategoryFilterApi.as_view(), name="api_category_filter"),
+    
+    # products Api url
+    path('api/product-list/',api.ProductsListAPI.as_view(), name='api_products_list'),
+    path('api/product-detail/<int:pk>',api.ProductDetailApi.as_view(), name='api_products_list'),
+    path('api/product-filter/<str:kw>',api.ProductFilterApi.as_view(), name='api_products_filter'),
+   
+    # order Api url
+    path('api/order-list/',api.OrdersListApi.as_view(), name='api_all_orders'),
+    path('api/order-detail/<int:pk>',api.OrderDetailApi.as_view(), name='api_order_detail'),
+    path('api/order-filter/<str:kw>',api.OrdersFilterApi.as_view(), name='api_order_filter'),
+    
+    # cats Api url
+    path('api/cart-list/',api.CartListApi.as_view(), name='api_cart_list'),
+    path('api/cart-detail/<int:pk>',api.CartDetailApi.as_view(), name='api_cart_detail'),
 ]
