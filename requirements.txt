@@ -6,7 +6,7 @@ charset-normalizer==2.0.9
 cryptography==36.0.1
 defusedxml==0.7.1
 dj-rest-auth==2.1.11
-Django>=4.0
+Django==4.0
 django-allauth==0.47.0
 django-bootstrap-v5==1.0.7
 django-debug-toolbar==3.2.4
