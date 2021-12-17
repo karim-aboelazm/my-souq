@@ -6,7 +6,7 @@ SECRET_KEY = 'django-insecure-@a(q_w^!v6#w(8(umgv-e1rvq4gzu8=+hlbtkqq8!^qz4=&ch7
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['my-souq.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['my-kogo-ecommerce.herokuapp.com','127.0.0.1']
 
 
 INSTALLED_APPS = [
