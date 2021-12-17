@@ -15,19 +15,19 @@ from rest_framework.authentication import SessionAuthentication,BasicAuthenticat
 
 # All Admins Retrive Api
 class AdminListApi(ListCreateAPIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     queryset = Admin.objects.all()
     serializer_class = AdminSerializer
     
 # Admin Detail Api
 class AdminDetailApi(RetrieveUpdateDestroyAPIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     queryset = Admin.objects.all()
     serializer_class = AdminSerializer
   
 # Admin filter search Api  
 class AdminFilterApi(APIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     def get(self,request,kw,format=None):
         admin = Admin.objects.filter(
             Q(full_name__icontains=kw))
@@ -36,19 +36,19 @@ class AdminFilterApi(APIView):
 
 # All Customer Retrive Api
 class CustomersListApi(ListCreateAPIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
 
 # customer details Api
 class CustomerDetailApi(RetrieveUpdateDestroyAPIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
 
 # customer filter search Api
 class CustomerFilterApi(APIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     def get(eslf,request,kw,format=None):
         customer = Customer.objects.filter(
             Q(full_name__icontains=kw)|
@@ -58,19 +58,19 @@ class CustomerFilterApi(APIView):
 
 # All Products Retrive Api
 class ProductsListAPI(ListCreateAPIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     queryset = Products.objects.all()
     serializer_class = ProductsSerializer
    
 # Product Detail Api
 class ProductDetailApi(RetrieveUpdateDestroyAPIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     queryset = Products.objects.all()
     serializer_class = ProductsSerializer
    
 # Product Filter search Api
 class ProductFilterApi(APIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     def get(eslf,request,kw,format=None):
         product = Products.objects.filter(
             Q(title__icontains=kw)|
@@ -82,19 +82,19 @@ class ProductFilterApi(APIView):
 
 # All orders Retrive Api
 class OrdersListApi(ListAPIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     queryset = Order.objects.all()
     serializer_class = OrdersSerializer
     
 # order detail Api
 class OrderDetailApi(RetrieveUpdateDestroyAPIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     queryset = Order.objects.all()
     serializer_class = OrdersSerializer
    
 # order filter search Api
 class OrdersFilterApi(APIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     def get(eslf,request,kw,format=None):
         order = Order.objects.filter(
             Q(ordered_by__icontains=kw)|
@@ -106,31 +106,31 @@ class OrdersFilterApi(APIView):
     
 # all Carts retrieve  Api
 class CartListApi(ListAPIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     queryset = Cart.objects.all() 
     serializer_class = CartSerializer
     
 # cart deatail api
 class CartDetailApi(RetrieveUpdateDestroyAPIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     queryset = Cart.objects.all() 
     serializer_class = CartSerializer
     
 # all categories api
 class CategoryListApi(ListCreateAPIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
     
 # category details api 
 class CategoryDetailApi(RetrieveUpdateDestroyAPIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
 
 # category filter search api
 class CategoryFilterApi(APIView):
-    # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
     def get(eslf,request,kw,format=None):
         category = Category.objects.filter(
             Q(title__icontains=kw)|
