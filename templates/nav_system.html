@@ -36,7 +36,7 @@
           </form>
 
           <div class="user_option_box">
-          {% if request.user.customer%}
+            {% if request.user.customer%}
             <a href="{% url 'ecom:customer_profile'%}" class="account-link">
               <i class="fa fa-user" aria-hidden="true"></i>
               <span>
@@ -44,6 +44,7 @@
               </span>
             </a>
             {%else%}
+
               <a href="{% url 'ecom:customer_register'%}" class="account-link">
                 <i class="fas fa-user-plus"></i>
               <span>
@@ -56,7 +57,7 @@
                       Login
                   </span>
               </a>
-              {%endif%}
+            {%endif%}
             
             {% if user.is_authenticated and request.user.customer%}
               <a href="{% url 'ecom:my_cart' %}" class="cart-link">
@@ -81,12 +82,6 @@
               Kogo
             </span>
           </a>
-
-          <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-list"
-            aria-controls="navbarNav" aria-expanded="true" aria-label="Toggle navigation"
-            onclick="displayMenu(event)">
-           <span></span>
-          </button> -->
           <button class="navbar-toggler navbar-toggler-right collapsed border-0" id="ChangeToggle"
             type="button" data-toggle="collapse" 
             aria-expanded="false"
